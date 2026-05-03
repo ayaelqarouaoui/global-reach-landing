@@ -29,7 +29,7 @@ const ContactForm = () => {
     }
     setLoading(true);
     try {
-      await sendToN8n({ ...parsed.data, language: lang, submittedAt: new Date().toISOString() });
+      await sendToN8n({ ...(parsed.data as Required<typeof parsed.data>), language: lang, submittedAt: new Date().toISOString() });
       toast.success(t.contact.success);
       setForm({ name: "", email: "", service: "", message: "" });
     } catch (err) {
